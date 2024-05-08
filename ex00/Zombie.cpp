@@ -3,26 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: math42 <math42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: math <math@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 18:37:37 by math42            #+#    #+#             */
-/*   Updated: 2023/09/04 18:49:27 by math42           ###   ########.fr       */
+/*   Updated: 2024/05/08 23:53:02 by math             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name)
+Zombie::Zombie(std::string name) : _name(name)
 {
-	_name = name;
+	return ;
 }
-//Zombie::~Zombie( void ) {}
 
-std::string Zombie::get_name( void )
+Zombie::~Zombie( void )
 {
-	return (_name);
+	std::cout << this->_name + " destroyed" << std::endl;
 }
-void Zombie::announcer( void )
+
+std::string Zombie::get_name( void ) const
 {
-	std::cout << get_name() + ": BraiiiiiiinnnzzzZ..." << std::endl;
+	return (this->_name);
+}
+
+void Zombie::announcer( void ) const
+{
+	std::cout << this->get_name() + ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
