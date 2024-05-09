@@ -6,7 +6,7 @@
 /*   By: math <math@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 18:27:05 by math42            #+#    #+#             */
-/*   Updated: 2024/05/09 00:29:58 by math             ###   ########.fr       */
+/*   Updated: 2024/05/09 00:32:03 by math             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,13 @@ class Zombie
 	
 	public:
 		Zombie( std::string name );
+		Zombie( void );
 		~Zombie( void );
 		std::string get_name( void ) const;
+		void	set_name( std::string name );
 		void announcer( void ) const;
 };
 
-Zombie	*newZombie( std::string name );
-void	randomChump( std::string name );
+Zombie	*zombieHorde( int N, std::string name );
 
 # endif /* __ZOMBIE_H__ */

@@ -3,23 +3,23 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: math42 <math42@student.42.fr>              +#+  +:+       +#+         #
+#    By: math <math@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/09/04 18:22:40 by math42            #+#    #+#              #
-#    Updated: 2023/09/04 18:22:41 by math42           ###   ########.fr        #
+#    Created: 2023/09/04 18:22:37 by math42            #+#    #+#              #
+#    Updated: 2024/05/09 00:41:58 by math             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Folders and Names
-NAME		=
+NAME		= zombie
 SRCSDIR		= .
 INCLUDES	= .
 
-SRCS		=
+SRCS		= main.cpp Zombie.cpp zombieHorde.cpp
 
 # Compiler options
-CC			= clang++
-CFLAGS		= -Wall -Wextra -Werror -std=c++98
+CC			= c++
+CFLAGS		= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 
 all: $(NAME)
 

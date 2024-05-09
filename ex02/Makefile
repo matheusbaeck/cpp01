@@ -3,19 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: math42 <math42@student.42.fr>              +#+  +:+       +#+         #
+#    By: math <math@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/04 18:22:45 by math42            #+#    #+#              #
-#    Updated: 2023/09/04 18:22:50 by math42           ###   ########.fr        #
+#    Updated: 2024/05/09 00:53:18 by math             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Folders and Names
-NAME		=
+NAME		= program
 SRCSDIR		= .
 INCLUDES	= .
 
-SRCS		=
+SRCS		= main.cpp
 
 # Compiler options
 CC			= clang++
