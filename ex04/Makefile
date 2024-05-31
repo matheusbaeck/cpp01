@@ -6,7 +6,7 @@
 #    By: math <math@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/04 18:22:45 by math42            #+#    #+#              #
-#    Updated: 2024/05/09 18:00:59 by math             ###   ########.fr        #
+#    Updated: 2024/05/31 11:26:22 by math             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,6 @@ fclean: clean
 re: fclean all
 
 test: $(NAME)
-	./$(NAME)
+	./$(NAME) file "(to_replace)" heey && cat file.out
 
 .PHONY: all clean fclean re test
