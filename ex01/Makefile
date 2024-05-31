@@ -6,7 +6,7 @@
 #    By: math <math@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/04 18:22:37 by math42            #+#    #+#              #
-#    Updated: 2024/05/09 00:41:58 by math             ###   ########.fr        #
+#    Updated: 2024/05/31 10:47:30 by math             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS		= main.cpp Zombie.cpp zombieHorde.cpp
 
 # Compiler options
 CC			= c++
-CFLAGS		= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+CFLAGS		= -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
