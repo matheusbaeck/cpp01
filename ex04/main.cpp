@@ -6,7 +6,7 @@
 /*   By: math <math@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 17:50:57 by math              #+#    #+#             */
-/*   Updated: 2024/05/09 23:57:18 by math             ###   ########.fr       */
+/*   Updated: 2024/06/24 17:25:26 by math             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,15 @@
 #include <iostream>
 #include <fstream>
 
+// replaces all occurrences of (str) in (src) with (str2).
 void	ft_replace(std::string const &str, std::string const &str2, std::string *src)
 {
-	size_t	to_replace;
-
-	while ((to_replace = src->find(str)) != std::string::npos)
-	{
-		src->erase(to_replace, str.length());
-		src->insert(to_replace, str2);
-		ft_replace(str, str2, src);
-	}
+	size_t pos = 0;
+    while ((pos = src->find(str, pos)) != std::string::npos)
+    {
+        src->replace(pos, str.length(), str2);
+        pos += str2.length();
+    }
 }
 
 int	main(int argc, char **argv)
@@ -35,7 +34,7 @@ int	main(int argc, char **argv)
 	}
 	
 	std::string const	&filename = argv[1];
-	std::string const	&newFilename = filename + ".out";
+	std::string const	&newFilename = filename + ".replace";
 	std::string const	&s1 = argv[2];
 	std::string const	&s2 = argv[3];
 
