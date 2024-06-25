@@ -6,7 +6,7 @@
 /*   By: math <math@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 00:07:15 by math              #+#    #+#             */
-/*   Updated: 2024/05/10 01:53:16 by math             ###   ########.fr       */
+/*   Updated: 2024/06/25 07:11:09 by math             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,16 @@ void	Harl::error( void )
 
 Harl::Harl()
 {
-	actions["DEBUG"] = &Harl::debug;
-	actions["INFO"] = &Harl::info;
-	actions["WARNING"] = &Harl::warning;
-	actions["ERROR"] = &Harl::error;
+	_levels[0] = "DEBUG";
+	_levels[1] = "INFO";
+	_levels[2] = "WARNING";
+	_levels[3] = "ERROR";
+
+	_actions[0] = &Harl::debug;
+	_actions[1] = &Harl::info;
+	_actions[2] = &Harl::warning;
+	_actions[3] = &Harl::error;
+
 	std::cout << "Harl created" << std::endl;
 }
 
@@ -47,13 +53,14 @@ Harl::~Harl()
 
 void	Harl::complain( std::string level )
 {
-	std::map <std::string, void (Harl::*)()>::const_iterator	it;
-
-	it = actions.find(level);
-	if (it != actions.end())
+	for (int i = 0; i < 4; i++)
 	{
-		(this->*(it->second))();
+		if (this->_levels[i] == level)
+		{
+			(this->*_actions[i])();
+			return ;
+		}
+		
 	}
-	else
-		std::cout << "Not a valid complaining level" << std::endl;
+	std::cout << "Not a valid complaining level" << std::endl;
 }

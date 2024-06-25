@@ -6,24 +6,11 @@
 /*   By: math <math@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 01:01:04 by math              #+#    #+#             */
-/*   Updated: 2024/05/10 05:46:59 by math             ###   ########.fr       */
+/*   Updated: 2024/06/25 07:38:27 by math             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
-#include <cstdlib>
-
-static int sumAsciiValues(const char* str)
-{
-	int	sum = 0;
-
-	while (*str != '\0')
-	{
-		sum += *str;
-		str++;
-	}
-	return sum;
-}
 
 int	main( int argc, char **argv )
 {
@@ -34,27 +21,6 @@ int	main( int argc, char **argv )
 		std::cout << "Invalid number of args!!" << std::endl;
 		return (1);
 	}
-	switch (sumAsciiValues(argv[1]))
-	{
-		case DEBUG:
-			harl.complain("A");
-			break;
-		
-		case INFO:
-			harl.complain("B");
-			break;
-
-		case WARNING:
-			harl.complain("C");
-			break;
-
-		case ERROR:
-			harl.complain("D");
-			break;
-		
-		default:
-			harl.complain("any");
-			break;
-	}
+	harl.complain(argv[1]);
 	return (0);
 }

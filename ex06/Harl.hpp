@@ -6,7 +6,7 @@
 /*   By: math <math@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 00:00:11 by math              #+#    #+#             */
-/*   Updated: 2024/05/10 05:45:00 by math             ###   ########.fr       */
+/*   Updated: 2024/06/25 07:39:48 by math             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <string>
 # include <iostream>
-# include <map>
 
 enum level {
 	DEBUG = 359,
@@ -26,11 +25,12 @@ enum level {
 
 class Harl
 {
+	std::string	_levels[4];
+
 	void	debug( void );
 	void	info( void );
 	void	warning( void );
 	void	error( void );
-	std::map<std::string, void (Harl::*)()>	actions;
 
 	public:
 		Harl( void );

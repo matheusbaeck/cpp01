@@ -6,7 +6,7 @@
 /*   By: math <math@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 00:00:11 by math              #+#    #+#             */
-/*   Updated: 2024/05/10 01:45:40 by math             ###   ########.fr       */
+/*   Updated: 2024/06/25 07:42:45 by math             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,16 @@
 
 # include <string>
 # include <iostream>
-# include <map>
 
 class Harl
 {
+	std::string	_levels[4];
+	void		(Harl::*_actions[4])( void );
+
 	void	debug( void );
 	void	info( void );
 	void	warning( void );
 	void	error( void );
-	std::map<std::string, void (Harl::*)()>	actions;
 
 	public:
 		Harl( void );

@@ -6,7 +6,7 @@
 /*   By: math <math@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 00:07:15 by math              #+#    #+#             */
-/*   Updated: 2024/05/10 05:43:55 by math             ###   ########.fr       */
+/*   Updated: 2024/06/25 07:37:51 by math             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,27 +33,43 @@ void	Harl::error( void )
 
 Harl::Harl()
 {
-	actions["A"] = &Harl::debug;
-	actions["B"] = &Harl::info;
-	actions["C"] = &Harl::warning;
-	actions["D"] = &Harl::error;
+	_levels[0] = "DEBUG";
+	_levels[1] = "INFO";
+	_levels[2] = "WARNING";
+	_levels[3] = "ERROR";
 }
 
 Harl::~Harl() {}
 
 void	Harl::complain( std::string level )
 {
-	std::map <std::string, void (Harl::*)()>::const_iterator	it;
-
-	it = actions.find(level);
-	if (it == actions.end())
+	for (int i = 0; i < 4; i++)
 	{
-		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-		return ;
+		if (this->_levels[i] == level)
+		{
+			switch (i)
+			{
+				case 0:
+					this->debug();
+					this->info();
+					this->warning();
+					this->error();
+					break;
+				case 1:
+					this->info();
+					this->warning();
+					this->error();
+					break;
+				case 2:
+					this->warning();
+					this->error();
+					break;
+				case 3:
+					this->error();
+					break;
+			}
+			return ;
+		}	
 	}
-	while (it != actions.end())
-	{
-		(this->*(it->second))();
-		it++;
-	}
+	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 }
